@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <button>animate</button>
+    <div></div>
+    <script>
+        $(function() {
+            $("button").click(function() {
+                $("div").animate({
+                    left: 200,
+                    top: 300,
+                    opacity: .3,
+                    width: 300
+                }, 1000);
+            })
+        })
+    </script>
+</body>
+
+</html>

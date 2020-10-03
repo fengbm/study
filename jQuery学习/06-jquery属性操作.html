@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <a href="#" title="fbm">fbm</a>
+    <input type="checkbox" name="" id="" checked>
+    <div index="1"></div>
+    <span></span>
+    <script>
+        $(function() {
+            console.log($("a").prop("href"));
+            //修改属性
+            $("a").prop("title", "fbmfbm");
+            $("input").change(function() {
+                console.log($(this).prop("checked"));
+            })
+        });
+        //元素自定义属性操作
+        console.log($("div").attr("index"));
+        $("div").attr("index", 4);
+        //数据缓存
+        $("span").data("uname", "andy");
+        console.log($("span").data("uname"));
+    </script>
+</body>
+
+</html>
