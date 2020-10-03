@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        
+        .box input {
+            width: 370px;
+            height: 30px;
+            border: 0;
+            /* 关闭边框高亮 */
+            outline: none;
+        }
+        
+        .box img {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='box'>
+        <!-- 放眼睛 -->
+        <label for=''>
+            <img src='img/close.png' alt='' id='eye'>
+        </label>
+        <input type='password' name='' id='pwd'>
+    </div>
+    <script>
+        var eye = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+
+        var flag = 0;
+        eye.onclick = function() {
+                if (flag == 0) {
+                    pwd.type = 'text';
+                    flag = 1;
+                    eye.src = 'img/open.png';
+                } else {
+                    pwd.type = 'password';
+                    flag = 0;
+                    eye.src = 'img/close.png';
+                }
+            }
+            //按下s键，获取密码框焦点,弹起触发
+        document.addEventListener('keyup', function(e) {
+            //console.log(e.keyCode);
+            if (e.keyCode === 83) {
+                pwd.focus();
+            }
+        })
+    </script>
+</body>
+
+</html>

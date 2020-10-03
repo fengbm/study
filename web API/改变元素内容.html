@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <button id='button'>显示当前时间</button>
+    <button id='1'>1</button>
+    <button id='2'>2</button>
+    <button id='3'>点击</button>
+    <input type='text' value='请输入'>
+    <div>时间</div>
+    <p></p>
+    <img src="img/1.jpg" alt="" title="1">
+    <script>
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+
+        btn.onclick = function() {
+            //div.innerText = '2020';
+            div.innerHTML = getDate();
+        }
+
+        function getDate() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1; //因为0到11为一年
+            var dates = date.getDate();
+            var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']; //一周的第一天为星期天
+            var day = date.getDay();
+            return '今天是：' + year + '年' + month + '月' + dates + '日' + arr[day];
+        }
+        //不使用事件，直接触发
+        var p = document.querySelector('p');
+        p.innerHTML = getDate();
+
+        var tu1 = document.getElementById('1');
+        var tu2 = document.getElementById('2');
+        var img = document.querySelector('img');
+
+        tu1.onclick = function() {
+            img.title = '1';
+            img.src = 'img/11.jpg';
+        }
+        tu2.onclick = function() {
+            img.title = '2';
+            img.src = 'img/22.jpg';
+        }
+
+        var b = document.getElementById('3');
+        var input = document.querySelector('input');
+
+        b.onclick = function() {
+            input.value = '被点击了';
+            //禁用按钮 btn.disabled=true;
+            this.disabled = true;
+        }
+        input.onfocus = function() {
+            if (input.value === '请输入') {
+                input.value = '';
+            }
+            this.style.color = '#333';
+        }
+        input.onblur = function() {
+            if (this.value === '') {
+                this.value = '请输入';
+            }
+            this.style.color = '#999';
+        }
+    </script>
+</body>
+
+</html>
